@@ -1,4 +1,4 @@
-const { keyboard, Key } = require("@nut-tree/nut-js");
+const { keyboard, Key, clipboard } = require("@nut-tree/nut-js");
 
 (async () => {
     // ALT + TAB
@@ -15,9 +15,11 @@ const { keyboard, Key } = require("@nut-tree/nut-js");
 
     // Extract the application name from the command line arguments
     const nik = process.argv[2] || '123456';
-    await keyboard.type(nik);
+    // await keyboard.type(nik);
+
+    await clipboard.setContent(nik);
 
     // Minimize the window using robotjs
-    await keyboard.pressKey(Key.LeftSuper, Key.Down);
-    await keyboard.releaseKey(Key.LeftSuper, Key.Down);
+    // await keyboard.pressKey(Key.LeftSuper, Key.Down);
+    // await keyboard.releaseKey(Key.LeftSuper, Key.Down);
 })();
