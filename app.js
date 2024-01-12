@@ -1,7 +1,15 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
-const { exec } = require('child_process');
+const { exec } = require('child_process')
 const port = 3000
+
+const corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions))
 
 app.get('/open-app', (req, res) => {
   // Extract the parameter from the query string, defaulting to 'notepad' if not provided
@@ -14,22 +22,14 @@ app.get('/open-app', (req, res) => {
   exec(command, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error executing openApp.js: ${error.message}`);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send(`Internal Server Error : ${error.message}`);
       return;
     }
     console.log('Script executed successfully');
     res.send('Script executed successfully');
-    // res.send(`
-    // <script>
-    //   const newTab = window.open('', '_blank');
-    //   newTab.document.write('<html><head><title>Closing Tab</title></head><body><p>Opening frista...</p></body></html>');
-    //   newTab.setTimeout(() => { newTab.close(); }, 2500);
-    //   window.close();
-    // </script>
-    // `);  
   });
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on http://localhost:${port}`)
+  console.log(`Node Frista listening on http://localhost:${port}`)
 })

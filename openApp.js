@@ -30,6 +30,4 @@ const { keyboard, Key, clipboard } = require("@nut-tree/nut-js");
     // Minimize the window using robotjs
     // await keyboard.pressKey(Key.LeftSuper, Key.Down);
     // await keyboard.releaseKey(Key.LeftSuper, Key.Down);
-
-    
 })();
