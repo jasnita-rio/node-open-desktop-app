@@ -10,24 +10,4 @@ const { keyboard, Key, clipboard } = require("@nut-tree/nut-js");
     // ALT + TAB
     await keyboard.pressKey(Key.LeftAlt, Key.Tab);
     await keyboard.releaseKey(Key.LeftAlt, Key.Tab);
-
-    // Open notepad app from windoows search
-
-    // Press windows button
-    // await keyboard.pressKey(Key.LeftSuper);
-    // await keyboard.releaseKey(Key.LeftSuper);
-
-    // Type "notepad"
-    // await keyboard.type('notepad');
-
-    // Enter to open notepad 
-    // await keyboard.pressKey(Key.Enter);
-    // await keyboard.releaseKey(Key.Enter);
-
-    // Type NIK
-    // await keyboard.type(nik);
-
-    // Minimize the window using robotjs
-    // await keyboard.pressKey(Key.LeftSuper, Key.Down);
-    // await keyboard.releaseKey(Key.LeftSuper, Key.Down);
 })();
